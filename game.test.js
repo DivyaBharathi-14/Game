@@ -6,47 +6,20 @@ const describe = (describe1) => {
             try {
                 if (actualResult === expectedResult) {
                     console.log('✓ : ', describe1);
+                    console.log('WINNER : ', actualResult);
                 }
                 else {
                     throw new Error('✗ : Test Case Failed');
                 }
             }
             catch (e) {
-                console.log(e);
-            }
-        };
-        const toBeTrue = () => {
-            try {
-                if (actualResult > 0) {
-                    console.log('✓ : Result is positive');
-                }
-                else {
-                    throw new Error('✗ : Result is negative');
-                }
-            }
-            catch (e) {
-                console.log(e);
-            }
-        }
-        const toBeFalse = () => {
-            try {
-                if (actualResult > 0) {
-                    throw new Error('✗ : Actual Result should be Negative but got Positive');
-                }
-                else {
-                    console.log('✓ : Actual Result is Negative')
-                }
-            } catch (e) {
-                console.log(e);
+                console.log(e, actualResult);
             }
         }
         const toBeNull = () => {
             try {
                 if (!actualResult) {
-                    throw new Error('✗ : Null Pointer Exception');
-                }
-                else {
-                    console.log(actualResult,"✓ : Result is not null")
+                    throw new Error('Invalid Input');
                 }
             }
             catch (e) {
@@ -55,8 +28,6 @@ const describe = (describe1) => {
         }
         return {
             toBe: toBe,
-            toBeTrue: toBeTrue,
-            toBeFalse: toBeFalse,
             toBeNull: toBeNull
         }
     }
@@ -64,5 +35,51 @@ const describe = (describe1) => {
         expect: expect
     }
 };
+util.computer = 0;
+util.user = 0;
+describe('when user gives ROCK and Computer gives ROCK')
+    .expect(game.game()).toBe('Draw');
 util.computer = 1;
-describe('checking who wins').expect(game.game()).toBe('Draw');
+util.user = 1;
+describe('when user gives PAPER and Computer gives PAPER')
+    .expect(game.game()).toBe('Draw');
+util.computer = 2;
+util.user = 2;
+describe('when user gives SCISSOR and Computer gives SCISSOR')
+    .expect(game.game()).toBe('Draw');
+util.computer = 1;
+util.user = 0
+describe('when user gives ROCK and Computer gives PAPER')
+    .expect(game.game()).toBe('Computer Wins');
+util.computer = 2;
+util.user = 0;
+describe('when user gives ROCK and Computer gives SCISSOR')
+    .expect(game.game()).toBe('User Wins');
+util.computer = 0;
+util.user = 2;
+describe('when user gives SCISSOR and Computer gives ROCK')
+    .expect(game.game()).toBe('Computer Wins');
+util.computer = 1;
+util.user = 2;
+describe('when user gives SCISSOR and Computer gives PAPER')
+    .expect(game.game()).toBe('User Wins');
+util.computer = 2;
+util.user = 1;
+describe('when user gives PAPER and Computer gives SCISSOR')
+    .expect(game.game()).toBe('Computer Wins');
+util.computer = 0;
+util.user = 1;
+describe('when user gives PAPER and Computer gives ROCK')
+    .expect(game.game()).toBe('User Wins');
+util.computer = 4;
+util.user = 1;
+describe('when user gives PAPER and Computer gives ROCK')
+    .expect(game.game()).toBeNull();
+util.computer = 2;
+util.user = 5;
+describe('when user gives PAPER and Computer gives ROCK')
+    .expect(game.game()).toBeNull();
+
+
+
+

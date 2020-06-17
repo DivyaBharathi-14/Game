@@ -36,49 +36,38 @@ const describe = (describe1) => {
     }
 };
 util.computer = 0;
-util.user = 0;
 describe('when user gives ROCK and Computer gives ROCK')
-    .expect(game.game()).toBe('Draw');
+    .expect(game.inputOfPlayers(0)).toBe('Draw');
 util.computer = 1;
-util.user = 1;
 describe('when user gives PAPER and Computer gives PAPER')
-    .expect(game.game()).toBe('Draw');
+    .expect(game.inputOfPlayers(1)).toBe('Draw');
 util.computer = 2;
-util.user = 2;
 describe('when user gives SCISSOR and Computer gives SCISSOR')
-    .expect(game.game()).toBe('Draw');
+    .expect(game.inputOfPlayers(2)).toBe('Draw');
 util.computer = 1;
-util.user = 0
 describe('when user gives ROCK and Computer gives PAPER')
-    .expect(game.game()).toBe('Computer Wins');
+    .expect(game.inputOfPlayers(0)).toBe('Computer Wins');
 util.computer = 2;
-util.user = 0;
 describe('when user gives ROCK and Computer gives SCISSOR')
-    .expect(game.game()).toBe('User Wins');
+    .expect(game.inputOfPlayers(0)).toBe('User Wins');
 util.computer = 0;
-util.user = 2;
 describe('when user gives SCISSOR and Computer gives ROCK')
-    .expect(game.game()).toBe('Computer Wins');
+    .expect(game.inputOfPlayers(2)).toBe('Computer Wins');
 util.computer = 1;
-util.user = 2;
 describe('when user gives SCISSOR and Computer gives PAPER')
-    .expect(game.game()).toBe('User Wins');
+    .expect(game.inputOfPlayers(2)).toBe('User Wins');
 util.computer = 2;
-util.user = 1;
 describe('when user gives PAPER and Computer gives SCISSOR')
-    .expect(game.game()).toBe('Computer Wins');
+    .expect(game.inputOfPlayers(1)).toBe('Computer Wins');
 util.computer = 0;
-util.user = 1;
 describe('when user gives PAPER and Computer gives ROCK')
-    .expect(game.game()).toBe('User Wins');
+    .expect(game.inputOfPlayers(1)).toBe('User Wins');
 util.computer = 4;
-util.user = 1;
 describe('when user gives PAPER and Computer gives ROCK')
-    .expect(game.game()).toBeNull();
+    .expect(game.inputOfPlayers(1)).toBeNull();
 util.computer = 2;
-util.user = 5;
 describe('when user gives PAPER and Computer gives ROCK')
-    .expect(game.game()).toBeNull();
+    .expect(game.inputOfPlayers(5)).toBeNull();
 
 
 

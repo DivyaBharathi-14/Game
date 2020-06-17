@@ -1,34 +1,33 @@
-<!DOCTYPE html> 
-<html> 
+<!DOCTYPE html>
+<html>
 
-<head> 
-	<title> 
+<head>
+	<title>
 		who wins!!!
-	</title> 
-</head> 
+	</title>
+</head>
 
-<body> 
-	<p> 
-		Select a radio button and click on Submit. 
-	</p> 
-	
-	Options: 
-	<input type="radio" name="option" value=0>Rock 
-	<input type="radio" name="option" value=1>Paper 
-	<input type="radio" name="option" value=2>Scissor 
-	
-	<br> 
+<body>
+	<p>
+		Select a radio button and click on Submit.
+	</p>
+
+	Options:
+	<input type="radio" id="rock" name="option" value=0>Rock </input>
+	<input type="radio" id="paper" name="option" value=1>Paper</input>
+	<input type="radio" id="scissor" name="option" value=2>Scissor</input>
+
 	<br>
-	<button type="button" onclick="game()"> 
-		Submit 
-	</button> 
-	
-	<br> 
-	
-	<div id="result"></div> 
-	<script src = util.js> 
+	<br>
+	<button type="button" onclick="inputOfPlayers( document.querySelector('input:checked').value)">
+		Submit
+	</button>
+
+	<br>
+
+	<div id="result"></div>
+	<script src=game.js>
 	</script>
-	<script src = game.js> 
-	</script> 
-</body> 
-</html>					 
+</body>
+
+</html>
